@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 340 30% 97%;
+    --foreground: 340 20% 20%;
+
+    --card: 340 40% 98%;
+    --card-foreground: 340 20% 20%;
+
+    --popover: 340 40% 98%;
+    --popover-foreground: 340 20% 20%;
+
+    --primary: 340 60% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 30% 92%;
+    --secondary-foreground: 340 40% 30%;
+
+    --muted: 340 20% 94%;
+    --muted-foreground: 340 10% 50%;
+
+    --accent: 280 30% 88%;
+    --accent-foreground: 280 30% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 30% 90%;
+    --input: 340 30% 90%;
+    --ring: 340 60% 65%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --gradient-bg: linear-gradient(135deg, hsl(340 40% 95%), hsl(20 40% 93%), hsl(280 30% 94%));
+    --gradient-primary: linear-gradient(135deg, hsl(340 65% 62%), hsl(320 55% 58%), hsl(280 45% 68%));
+    --gradient-text: linear-gradient(135deg, hsl(340 70% 55%), hsl(280 50% 60%), hsl(340 60% 65%));
+    --glass-bg: hsla(340, 40%, 98%, 0.7);
+    --glass-border: hsla(340, 40%, 85%, 0.5);
+    --glow-primary: 0 0 20px hsla(340, 60%, 65%, 0.3), 0 0 40px hsla(340, 60%, 65%, 0.1);
+    --glow-soft: 0 0 15px hsla(340, 60%, 65%, 0.15);
+    --user-bubble: linear-gradient(135deg, hsl(340 60% 58%), hsl(330 55% 55%));
+    --ai-bubble: hsla(340, 40%, 98%, 0.8);
+
+    /* Mood colors */
+    --mood-happy: 45 90% 60%;
+    --mood-sad: 220 40% 70%;
+    --mood-love: 340 70% 60%;
+    --mood-calm: 250 30% 70%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 330 25% 7%;
+    --foreground: 340 20% 92%;
+
+    --card: 330 22% 11%;
+    --card-foreground: 340 20% 92%;
+
+    --popover: 330 22% 11%;
+    --popover-foreground: 340 20% 92%;
+
+    --primary: 340 60% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 18% 16%;
+    --secondary-foreground: 340 20% 82%;
+
+    --muted: 330 15% 14%;
+    --muted-foreground: 340 10% 55%;
+
+    --accent: 280 20% 20%;
+    --accent-foreground: 280 20% 82%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 330 18% 16%;
+    --input: 330 18% 16%;
+    --ring: 340 60% 58%;
+
+    --gradient-bg: linear-gradient(135deg, hsl(330 25% 8%), hsl(320 20% 6%), hsl(280 18% 10%));
+    --gradient-primary: linear-gradient(135deg, hsl(340 60% 50%), hsl(320 50% 45%), hsl(280 40% 52%));
+    --gradient-text: linear-gradient(135deg, hsl(340 70% 65%), hsl(280 50% 70%), hsl(340 60% 70%));
+    --glass-bg: hsla(330, 22%, 12%, 0.85);
+    --glass-border: hsla(340, 20%, 22%, 0.6);
+    --glow-primary: 0 0 25px hsla(340, 60%, 55%, 0.25), 0 0 50px hsla(340, 60%, 55%, 0.08);
+    --glow-soft: 0 0 20px hsla(340, 60%, 55%, 0.12);
+    --user-bubble: linear-gradient(135deg, hsl(340 55% 42%), hsl(330 50% 38%));
+    --ai-bubble: hsla(330, 20%, 15%, 0.9);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glow-soft);
+  }
+  .gradient-bg {
+    background: var(--gradient-bg);
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-soft {
+    box-shadow: var(--glow-soft);
+  }
+  .user-bubble {
+    background: var(--user-bubble);
+  }
+  .ai-bubble {
+    background: var(--ai-bubble);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+  }
+  .input-glow:focus-within {
+    box-shadow: var(--glow-primary);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.4);
+}
